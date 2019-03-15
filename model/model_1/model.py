@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import tensorflow as tf
 
-from utils import *
+from detail import *
 
 EMOTIONS = ['angry', 'disgusted', 'fearful', 'happy', 'sad', 'surprised', 'neutral']
 
