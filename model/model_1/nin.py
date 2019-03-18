@@ -1,0 +1,40 @@
+#NIN
+#mlpconv1 and maxpool1 and dropout1
+w_mlpconv1_1 = weight_variables([5, 5, 1, 192])
+w_mlpconv1_2 = weight_variables([1, 1, 192, 160])
+w_mlpconv1_3 = weight_variables([1, 1, 160, 96])
+b_mlpconv1_1 = bias_variable([192])
+b_mlpconv1_2 = bias_variable([160])
+b_mlpconv1_3 = bias_variable([96])
+h_mlpconv1_1 = tf.nn.relu(conv2d(x_image, w_mlpconv1_1) + b_mlpconv1_1)
+h_mlpconv1_2 = tf.nn.relu(conv2d(h_mlpconv1_1, w_mlpconv1_2) + b_mlpconv1_2)
+h_mlpconv1_3 = tf.nn.relu(conv2d(h_mlpconv1_2, w_mlpconv1_3) + b_mlpconv1_3)
+h_pool1 = maxpool(h_mlpconv1_3)
+h_mlpconv1_drop = tf.nn.dropout(h_pool1, keep_prob)
+
+#mlpconv2 and maxpool1   dropout2
+w_mlpconv2_1 = weight_variables([5, 5, 1, 192])
+w_mlpconv2_2 = weight_variables([1, 1, 192, 192])
+w_mlpconv2_3 = weight_variables([1, 1, 192, 192])
+b_mlpconv2_1 = bias_variable([192])
+b_mlpconv2_2 = bias_variable([192])
+b_mlpconv2_3 = bias_variable([192])
+h_mlpconv2_1 = tf.nn.relu(conv2d(h_mlpconv1_drop, w_mlpconv2_1) + b_mlpconv2_1)
+h_mlpconv2_2 = tf.nn.relu(conv2d(h_mlpconv2_1, w_mlpconv2_2) + b_mlpconv2_2)
+h_mlpconv2_3 = tf.nn.relu(conv2d(h_mlpconv2_2, w_mlpconv2_3) + b_mlpconv2_3)
+h_pool2 = maxpool(h_mlpconv2_3)
+h_mlpconv2_drop = tf.nn.dropout(h_pool2, keep_prob)
+
+#mlpconv3   (add a dropout layer? i will give a shot. update...)
+w_mlpconv3_1 = weight_variables([3, 3, 192, 192])
+w_mlpconv3_2 = weight_variables([1, 1, 192, 192])
+w_mlpconv3_3 = weight_variables([1, 1, 192, 7])
+b_mlpconv3_1 = bias_variable([192])
+b_mlpconv3_2 = bias_variable([192])
+b_mlpconv3_3 = bias_variable([7])
+h_mlpconv3_1 = tf.nn.relu(conv2d(h_mlpconv2_drop, w_mlpconv3_1) + b_mlpconv3_1)
+h_mlpconv3_2 = tf.nn.relu(conv2d(h_mlpconv3_1, w_mlpconv3_2) + b_mlpconv3_2)
+h_mlpconv3_3 = tf.nn.relu(conv2d(h_mlpconv3_2, w_mlpconv3_3) + b_mlpconv3_3)
+
+#global avg pool
+y_conv = global_avg_pool(h_mlpconv3_3, [1, 12, 12, 1])
