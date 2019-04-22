@@ -2,3 +2,6 @@ model.py是模型训练文件
 detail.py包括一些数据集处理函数
 nin是NIN网络实现，替换model里面的各层就行
 本来还有一个标准的Alexnet,但是有于电脑实在是太渣，一跑就死机，所以只能继续往下了
+忘记说了，数据集市fer2013原版，只需要用numpy或pandas处理成tenor就行，shape=[-1,48,48,1]
+each = 50
+
