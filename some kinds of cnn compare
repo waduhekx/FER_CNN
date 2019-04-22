@@ -82,3 +82,26 @@ AlexNet架构：
     与AlexNet大卷积核不同，VGG网络的卷积核变得很小，离LeNet5竭力避免的1*1卷积接近
     ----至少在第一层就是。
     VGG通过一次采用多个3*3卷积，能够模仿出更大的感受野效果
+ 
+nin
+  1.use mlpconv layer repeat.
+  2.use global avg pool replace fc
+  
+inception
+  1.bottleneck: conv1*1
+  2.multi conv: 1*1, 3*3, 5*5, pool
+  3.concat
+ 
+resnet
+  1.add module
+  
+densenet
+  1.dense module, resnet upgrade
+  
+mobilenet
+  1.dw conv
+  2.pw conv
+ 
+shufflenet
+  1.group conv
+ 
