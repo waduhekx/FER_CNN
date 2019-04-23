@@ -1,5 +1,10 @@
 # CNN-learn-note
 
+1.FOLDER MODEL INCLUDE SOME SIMPLE CNN ARCHITECTURES
+ 
+2.NOTE INCLUDE SOME INTRODUCTIONS FOR THOSE ARCHITECTURES,VERY CONCISE
+
+
 my note for cnn learn
 
 i am so tired of my graduation project, so i try to write down something which i have seen.
