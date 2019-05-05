@@ -14,7 +14,6 @@ for discussing, if you are puzzzled that what i see, something you could help,
 or something i wrote is wrong,
 
 try qq:     40567567
-
-    email:  405676567@qq.com / himteeem@hotmail.com
+email:  405676567@qq.com / himteeem@hotmail.com
     
 thinks
